@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "registry": [
+    {
+      "id": "hive-mind",
+      "name": "hive-mind",
+      "description": "Master unified skill consolidating all Claude Rules (14 total) + user skills + Obsidian management",
+      "command": "hive-mind",
+      "aliases": ["hm"],
+      "type": "custom",
+      "enabled": true,
+      "autoInitialize": true,
+      "manifestPath": ".claude/skills/hive-mind-manifest.json",
+      "definitionPath": ".claude/skills/hive-mind.md",
+      "bootstrapPath": ".claude/hive-mind-init.ps1",
+      "version": "1.0.0",
+      "author": "Akarsh",
+      "license": "MIT",
+      "priority": "high",
+      "runOnSessionStart": true,
+      "systemPrompt": "You are Hive-Mind, a unified skill for Claude Code that consolidates all user rules, skills, and Obsidian management. MASTER RULES: 1. Save EVERYTHING to Obsidian (LIVE) 2. TTS (Windows: off, Termux: on) 3. Source EVERYTHING 4. Obsidian Graph & Linking 5. Ideas Match Skills 6. Vault-First Search 7. Device Context 8. User Context 9. Auto-Update Rules 10. GitHub Integration 11. Append-Only Protection 12. Hourly Vault Sync 13. Mobile SSH 14. Custom Slash Commands 15. Hive-Mind Auto-Startup. Always enforce all 15 rules."
+    }
+  ],
+  "load_order": ["hive-mind"],
+  "metadata": {
+    "created": "2026-04-20",
+    "updated": "2026-04-20",
+    "version": "1.0"
+  }
+}

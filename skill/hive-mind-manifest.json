@@ -1,0 +1,114 @@
+{
+  "name": "hive-mind",
+  "version": "1.0.0",
+  "description": "Master unified skill consolidating all Claude Rules (14 total) + user skills + Obsidian management",
+  "author": "Akarsh",
+  "license": "MIT",
+  "command": "hive-mind",
+  "aliases": ["hm"],
+  "type": "system",
+  "enabled": true,
+  "autoInitialize": true,
+  "runOnSessionStart": true,
+  "priority": "high",
+  "systemPrompt": "You are Hive-Mind, a unified skill for Claude Code that consolidates all user rules, skills, and Obsidian management.",
+  "capabilities": [
+    "context-detection",
+    "rule-enforcement",
+    "vault-management",
+    "obsidian-integration",
+    "session-logging",
+    "source-validation",
+    "github-sync",
+    "multi-device-support"
+  ],
+  "requirements": {
+    "directories": [
+      "Setup & Config/",
+      "Skills/",
+      "CompTIA SecAI+/Chat Logs/"
+    ],
+    "files": [
+      "Setup & Config/Claude Rules - Windows.md",
+      "Skills/My Skills.md",
+      "Setup & Config/hive-mind-skill.md"
+    ]
+  },
+  "context": {
+    "vaultPath": "C:\\Users\\akars\\OneDrive\\Desktop\\Akarsh",
+    "rulesFile": "Setup & Config\\Claude Rules - Windows.md",
+    "skillsFile": "Skills\\My Skills.md",
+    "sessionLogDir": "CompTIA SecAI+\\Chat Logs"
+  },
+  "rules": {
+    "count": 15,
+    "source": "Setup & Config/Claude Rules - Windows.md",
+    "appendOnlyFiles": [
+      "Setup & Config/Claude Rules - Windows.md",
+      "Skills/My Skills.md",
+      "CompTIA SecAI+/Chat Logs/*"
+    ]
+  },
+  "routing": {
+    "certification": {
+      "keywords": ["exam", "lesson", "study", "course", "SecAI+", "CY0-001"],
+      "route": "CompTIA SecAI+/Daily Notes/",
+      "action": "Create Daily Notes, cite standards, append session log"
+    },
+    "development": {
+      "keywords": ["build", "app", "code", "develop", "create", "project"],
+      "route": "Ideas/ or Setup & Config/",
+      "action": "Suggest Python/Bash/CLI, save to Ideas, append session log"
+    },
+    "learning": {
+      "keywords": ["learn", "understand", "new concept", "explain"],
+      "route": "Cyber Notes/ or Research/",
+      "action": "Create Daily Notes, structure by topic, link related, append session log"
+    },
+    "research": {
+      "keywords": ["research", "find", "compile", "analyze", "investigate"],
+      "route": "Research/",
+      "action": "Vault search first, compile findings, cite sources, append session log"
+    },
+    "braindump": {
+      "keywords": ["remember", "add", "note", "save", "document"],
+      "route": "Session Log",
+      "action": "Append to session log, organize later, non-repudiation"
+    },
+    "skills": {
+      "keywords": ["skill", "capability", "learned", "progress", "update"],
+      "route": "Skills/My Skills.md",
+      "action": "Update skills profile, append session log, verify against actual skills"
+    }
+  },
+  "integration": {
+    "obsidian": {
+      "enabled": true,
+      "liveLogging": true,
+      "appendOnly": true
+    },
+    "github": {
+      "enabled": true,
+      "account": "Akarsh-cyb",
+      "repo": "cloud-plus-obsidian",
+      "syncInterval": "hourly"
+    },
+    "devices": {
+      "primary": "Windows 11",
+      "secondary": "Samsung S25 Ultra (Termux)",
+      "sync": "OneDrive"
+    }
+  },
+  "hooks": {
+    "SessionStart": "Initialize hive-mind, load all 14 rules, load user skills",
+    "PreResponse": "Search vault first",
+    "PostResponse": "Append to session log, cite sources, create/update wikilinks"
+  },
+  "metadata": {
+    "created": "2026-04-20",
+    "updated": "2026-04-20",
+    "status": "production",
+    "complexity": "advanced",
+    "scope": "global"
+  }
+}
